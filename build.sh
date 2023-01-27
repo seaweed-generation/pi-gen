@@ -165,6 +165,8 @@ fi
 
 export BASE_DIR
 
+source config.base
+
 if [ -f config ]; then
 	# shellcheck disable=SC1091
 	source config
@@ -318,6 +320,16 @@ fi
 
 if [[ "${PUBKEY_ONLY_SSH}" = "1" && -z "${PUBKEY_SSH_FIRST_USER}" ]]; then
 	echo "Must set 'PUBKEY_SSH_FIRST_USER' to a valid SSH public key if using PUBKEY_ONLY_SSH"
+	exit 1
+fi
+
+if [[ -z "$AP_PASSWORD" ]]; then
+	echo "Must set AP_PASSWORD (password for access point mode)."
+	exit 1
+fi
+
+if [[ -z "$ALGARITHMS_DEPLOY_KEY" ]]; then
+	echo "Must set ALGARITHMS_DEPLOY_KEY to pull the algarithms repo."
 	exit 1
 fi
 

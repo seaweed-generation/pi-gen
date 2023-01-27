@@ -1,0 +1,10 @@
+DEVICE_ID=$(cat /dev/urandom | tr -dc A-Z0-9 | head -c 6)
+
+IMG_NAME=algarithms-amd64
+RELEASE=bullseye
+TARGET_HOSTNAME="seagen-${DEVICE_ID}.local"
+LOCALE_DEFAULT=en_US.UTF-8
+KEYBOARD_KEYMAP=us
+TIMEZONE_DEFAULT="Etc/UTC"
+DISABLE_FIRST_BOOT_USER_RENAME=1
+ENABLE_SSH=1
