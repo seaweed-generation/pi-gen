@@ -1,6 +1,8 @@
-DEVICE_ID=$(cat /dev/urandom | tr -dc A-Z0-9 | head -c 6)
+if [[ -z "$DEVICE_ID" ]]; then
+  DEVICE_ID="NEW"
+fi
 
-IMG_NAME=algarithms-amd64
+IMG_NAME=algos-amd64
 RELEASE=bullseye
 TARGET_HOSTNAME="seagen-${DEVICE_ID}.local"
 LOCALE_DEFAULT=en_US.UTF-8
