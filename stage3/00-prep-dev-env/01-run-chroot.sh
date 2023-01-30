@@ -1,15 +1,13 @@
-#!/bin/bash -e
+#!/bin/bash
 
-FIRST_USER_HOME="${ROOTFS_DIR}/home/${FIRST_USER_NAME}"
-SSH_ID_FILE="${FIRST_USER_HOME}/.ssh/id_ed25519"
+SSH_DIR="/home/${FIRST_USER_NAME}/.ssh"
+SSH_ID_FILE="${SSH_DIR}/id_ed25519"
 
-echo "Setting up SSH"
-echo "Home directory -> $FIRST_USER_HOME"
-echo "SSH ID file -> $SSH_ID_FILE"
-
-mkdir -p $(dirname "$SSH_ID_FILE")
+if [[ ! -d "$SSH_DIR" ]]; then
+  install -v -m 0700 -o 1000 -g 1000 -d "$SSH_DIR"
+fi
 
 echo "$ALGARITHMS_DEPLOY_KEY" > "$SSH_ID_FILE"
 
-chown "$FIRST_USER_NAME" "$SSH_ID_FILE"
+chown 1000:1000 "$SSH_ID_FILE"
 chmod 0600 "$SSH_ID_FILE"
