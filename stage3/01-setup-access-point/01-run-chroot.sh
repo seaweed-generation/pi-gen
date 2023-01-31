@@ -1,4 +1,6 @@
-#!/bin/bash -e
+#!/bin/bash
+
+set -euo pipefail
 
 systemctl unmask hostapd
 systemctl disable hostapd

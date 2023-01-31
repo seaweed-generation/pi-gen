@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 SSH_DIR="/home/${FIRST_USER_NAME}/.ssh"
 SSH_ID_FILE="${SSH_DIR}/id_ed25519"
 
