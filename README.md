@@ -2,6 +2,17 @@
 
 Tool used to create Raspberry Pi OS images. (Previously known as Raspbian).
 
+## algOS
+
+Customized image for Seaweed Generation's field devices. Based on the `arm64` branch.
+
+Summary of differences between the base branch:
+
+- Deleted stage4 and stage5 because we only want a lite image (no desktop)
+- Replaced stage3 with everything we need to run in the field
+- The lite image is created after stage3 instead of stage2
+- Added a `config.base` which has common configuration for all builds, and always gets sourced. `config` continues
+  to be optional, and is sourced after `config.base`. It should contain any sensitive config values
 
 ## Dependencies
 
