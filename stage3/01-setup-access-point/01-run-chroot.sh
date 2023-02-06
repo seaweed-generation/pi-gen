@@ -14,17 +14,19 @@ EOF
 
 mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 
+# NOTE: the hostname/AP name is changed on first boot by firstboot.sh
+
 cat > /etc/dnsmasq.conf <<EOF
 interface=wlan0
 dhcp-range=10.0.100.2,10.0.100.20,255.255.255.0,24h
 domain=wlan
-address=/seagen-${DEVICE_ID}.gw/10.0.100.1
+address=/${INITIAL_HOSTNAME}.gw/10.0.100.1
 EOF
 
 cat > /etc/hostapd/hostapd.conf <<EOF
 country_code=${WPA_COUNTRY:-US}
 interface=wlan0
-ssid=seagen-${DEVICE_ID}
+ssid=${INITIAL_HOSTNAME}
 hw_mode=g
 channel=7
 macaddr_acl=0

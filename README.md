@@ -13,6 +13,8 @@ Summary of differences between the base branch:
 - The lite image is created after stage3 instead of stage2
 - Added a `config.base` which has common configuration for all builds, and always gets sourced. `config` continues
   to be optional, and is sourced after `config.base`. It should contain any sensitive config values
+- Adds a firstboot service, which will run /boot/firstboot.sh in order to set a random hostname/AP name. Inspired
+  by the [raspberian-firstboot](https://github.com/nmcclain/raspberian-firstboot) project
 
 ## Dependencies
 
