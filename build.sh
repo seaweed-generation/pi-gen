@@ -235,7 +235,7 @@ export WPA_COUNTRY
 export ENABLE_SSH="${ENABLE_SSH:-0}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
-export ALGARITHMS_DEPLOY_KEY
+export ALGA_FIELD_DEPLOY_KEY
 export AP_PASSWORD
 export INITIAL_HOSTNAME
 
@@ -332,8 +332,8 @@ if [[ -z "$AP_PASSWORD" ]]; then
 	exit 1
 fi
 
-if [[ -z "$ALGARITHMS_DEPLOY_KEY" ]]; then
-	echo "Must set ALGARITHMS_DEPLOY_KEY to pull the algarithms repo."
+if [[ -z "$ALGA_FIELD_DEPLOY_KEY" ]]; then
+	echo "Must set ALGA_FIELD_DEPLOY_KEY to pull the alga-field repo."
 	exit 1
 fi
 
