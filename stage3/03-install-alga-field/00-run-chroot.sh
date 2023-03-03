@@ -8,12 +8,7 @@ git_clone() {
 }
 
 git_clone "alga-field"
-git_clone "alga-field-client"
 
 runuser -l "$FIRST_USER_NAME" -c "pip install --user -e /home/$FIRST_USER_NAME/alga-field"
-
-pushd "/home/$FIRST_USER_NAME/alga-field-client"
-npm install
-popd
 
 echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" > /etc/cron.d/wifi-check
