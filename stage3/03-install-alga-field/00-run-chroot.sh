@@ -9,6 +9,6 @@ git_clone() {
 
 git_clone "alga-field"
 
-runuser -l "$FIRST_USER_NAME" -c "pip install --user -e /home/$FIRST_USER_NAME/alga-field"
+runuser -l "$FIRST_USER_NAME" -c "cd /home/$FIRST_USER_NAME/alga-field && pip install --user -e ."
 
 echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" > /etc/cron.d/wifi-check
