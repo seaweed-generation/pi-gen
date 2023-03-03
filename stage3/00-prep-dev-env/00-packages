@@ -5,3 +5,5 @@ ffmpeg
 x264
 libx264-dev
 sqlite3
+nodejs
+npm
