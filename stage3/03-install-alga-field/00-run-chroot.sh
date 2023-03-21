@@ -12,3 +12,4 @@ git_clone "alga-field"
 runuser -l "$FIRST_USER_NAME" -c "cd /home/$FIRST_USER_NAME/alga-field && pip install --user -e ."
 
 echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" > /etc/cron.d/wifi-check
+echo "* * * * * $FIRST_USER_NAME .local/bin/alga beacon" > /etc/cron.d/alga-beacon
