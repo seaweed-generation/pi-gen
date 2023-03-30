@@ -13,10 +13,6 @@ git_clone "alga-field"
 
 runuser -l "$FIRST_USER_NAME" -c "cd $USER_HOME/alga-field && pip install --user -e ."
 
-mkdir "$USER_HOME/.config"
-chown -R 1000:1000 "$USER_HOME/.config"
-runuser -l "$FIRST_USER_NAME" -c ".local/bin/alga db migrate"
-
 touch /etc/cron.d/alga-field
 
 echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" >> /etc/cron.d/alga-field
