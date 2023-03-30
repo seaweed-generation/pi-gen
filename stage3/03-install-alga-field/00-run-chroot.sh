@@ -10,6 +10,9 @@ git_clone() {
 git_clone "alga-field"
 
 runuser -l "$FIRST_USER_NAME" -c "cd /home/$FIRST_USER_NAME/alga-field && pip install --user -e ."
+runuser -l "$FIRST_USER_NAME" -c "cd /home/$IFRST_USER_NAME && .local/bin/alga db migrate"
 
-echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" > /etc/cron.d/wifi-check
-echo "* * * * * $FIRST_USER_NAME .local/bin/alga beacon" > /etc/cron.d/alga-beacon
+touch /etc/cron.d/alga-field
+
+echo "*/2 * * * * $FIRST_USER_NAME .local/bin/alga wifi check" >> /etc/cron.d/alga-field
+echo "* * * * * $FIRST_USER_NAME .local/bin/alga beacon" >> /etc/cron.d/alga-field
