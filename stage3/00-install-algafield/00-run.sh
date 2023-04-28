@@ -11,5 +11,5 @@ cp -v "$ALGAFIELD_DEB" "${ROOTFS_DIR}${TARGET_PATH}"
 
 on_chroot <<EOF
 dpkg -I $TARGET_PATH
-apt install $TARGET_PATH
+apt install -y $TARGET_PATH
 EOF
