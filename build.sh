@@ -236,6 +236,7 @@ export ENABLE_SSH="${ENABLE_SSH:-0}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
 export INITIAL_HOSTNAME
+export ALGAFIELD_DEB="$(realpath $ALGAFIELD_DEB)"
 
 export LOCALE_DEFAULT="${LOCALE_DEFAULT:-en_GB.UTF-8}"
 
@@ -322,6 +323,11 @@ fi
 
 if [[ "${PUBKEY_ONLY_SSH}" = "1" && -z "${PUBKEY_SSH_FIRST_USER}" ]]; then
 	echo "Must set 'PUBKEY_SSH_FIRST_USER' to a valid SSH public key if using PUBKEY_ONLY_SSH"
+	exit 1
+fi
+
+if [[ -z "${ALGAFIELD_DEB}" || ! -e "${ALGAFIELD_DEB}" ]]; then
+	echo "No algafield package provided in ALGAFIELD_DEB, or it does not exist."
 	exit 1
 fi
 

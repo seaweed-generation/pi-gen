@@ -2,16 +2,11 @@
 
 set -eu
 
-ALGAFIELD_DEB="$(find $BASE_DIR -name "algafield_*.deb")"
-NUM_RESULTS=$(echo $ALGAFIELD_DEB | wc -l | xargs)
+DEB_FILENAME="$(basename $ALGAFIELD_DEB)"
+TARGET_PATH="/tmp/$DEB_FILENAME"
 
-if [[ "$NUM_RESULTS" != "1" ]]; then
-  echo "Must have exactly one copy of the algafield deb package in the base directory."
-  exit 1
-fi
-
-cp "$ALGAFIELD_DEB" "${ROOTFS_DIR}/tmp/algafield.deb"
+cp "$ALGAFIELD_DEB" "${ROOTFS_DIR}${TARGET_PATH}"
 
 on_chroot <<EOF
-sudo apt install /tmp/algafield.deb
+sudo apt install $TARGET_PATH
 EOF
