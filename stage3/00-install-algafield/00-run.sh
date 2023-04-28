@@ -3,10 +3,13 @@
 set -eu
 
 DEB_FILENAME="$(basename $ALGAFIELD_DEB)"
-TARGET_PATH="/tmp/$DEB_FILENAME"
+TARGET_DIR="/tmp/algafield"
+TARGET_PATH="${TARGET_DIR}/${DEB_FILENAME}"
 
-cp "$ALGAFIELD_DEB" "${ROOTFS_DIR}${TARGET_PATH}"
+mkdir -p "${ROOTFS_DIR}${TARGET_DIR}"
+cp -v "$ALGAFIELD_DEB" "${ROOTFS_DIR}${TARGET_PATH}"
 
 on_chroot <<EOF
-sudo apt install $TARGET_PATH
+dpkg -I $TARGET_PATH
+apt install $TARGET_PATH
 EOF
