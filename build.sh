@@ -235,9 +235,8 @@ export WPA_COUNTRY
 export ENABLE_SSH="${ENABLE_SSH:-0}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
-export ALGA_FIELD_DEPLOY_KEY
-export AP_PASSWORD
 export INITIAL_HOSTNAME
+export ALGAFIELD_DEB="$(realpath $ALGAFIELD_DEB)"
 
 export LOCALE_DEFAULT="${LOCALE_DEFAULT:-en_GB.UTF-8}"
 
@@ -327,13 +326,8 @@ if [[ "${PUBKEY_ONLY_SSH}" = "1" && -z "${PUBKEY_SSH_FIRST_USER}" ]]; then
 	exit 1
 fi
 
-if [[ -z "$AP_PASSWORD" ]]; then
-	echo "Must set AP_PASSWORD (password for access point mode)."
-	exit 1
-fi
-
-if [[ -z "$ALGA_FIELD_DEPLOY_KEY" ]]; then
-	echo "Must set ALGA_FIELD_DEPLOY_KEY to pull the alga-field repo."
+if [[ -z "${ALGAFIELD_DEB}" || ! -e "${ALGAFIELD_DEB}" ]]; then
+	echo "No algafield package provided in ALGAFIELD_DEB, or it does not exist."
 	exit 1
 fi
 

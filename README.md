@@ -8,13 +8,11 @@ Customized image for Seaweed Generation's field devices. Based on the `arm64` br
 
 Summary of differences between the base branch:
 
-- Deleted stage4 and stage5 because we only want a lite image (no desktop)
-- Replaced stage3 with everything we need to run in the field
+- Deleted stage4 and stage5 because we only want a lite image (no desktop); also disabled NOOBS build
+- Replaced stage3 with everything we need to run in the field (provided by a Debian package)
 - The lite image is created after stage3 instead of stage2
 - Added a `config.base` which has common configuration for all builds, and always gets sourced. `config` continues
-  to be optional, and is sourced after `config.base`. It should contain any sensitive config values
-- Adds a firstboot service, which will run /boot/firstboot.sh in order to set a random hostname/AP name. Inspired
-  by the [raspberian-firstboot](https://github.com/nmcclain/raspberian-firstboot) project
+  to be optional, and is sourced after `config.base`. It should contain any sensitive config values, like SSH user/pass
 
 ## Dependencies
 
