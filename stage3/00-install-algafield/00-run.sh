@@ -3,7 +3,7 @@
 set -eu
 
 DEB_FILENAME="$(basename $ALGAFIELD_DEB)"
-TARGET_DIR="/tmp/algafield"
+TARGET_DIR="/var/cache/algafield"
 TARGET_PATH="${TARGET_DIR}/${DEB_FILENAME}"
 
 mkdir -p "${ROOTFS_DIR}${TARGET_DIR}"
