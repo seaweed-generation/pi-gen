@@ -2,7 +2,16 @@
 
 set -eu
 
-sudo ./build.sh
+rm algafield_release.txt
+rm algafield_*.deb
+
+aws s3 cp s3://alga-field-debs/alga-field/current_release.txt algafield_release.txt
+
+export ALGAFIELD_DEB="$(cat algafield_release.txt)"
+
+aws s3 cp "s3://alga-field-debs/alga-field/$ALGAFIELD_DEB" .
+
+sudo --preserve-env=ALGAFIELD_DEB ./build.sh
 
 source config.base
 
