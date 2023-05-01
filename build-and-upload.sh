@@ -2,8 +2,8 @@
 
 set -eu
 
-rm algafield_release.txt
-rm algafield_*.deb
+rm -f algafield_release.txt
+rm -f algafield_*.deb
 
 aws s3 cp s3://alga-field-debs/alga-field/current_release.txt algafield_release.txt
 
