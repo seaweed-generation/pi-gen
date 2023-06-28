@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y netfilter-persistent iptables-persistent
+
 # enable access point daemon
 systemctl unmask hostapd
 systemctl enable hostapd
