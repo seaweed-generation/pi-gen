@@ -235,10 +235,6 @@ export WPA_COUNTRY
 export ENABLE_SSH="${ENABLE_SSH:-0}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
-export ALGA_FIELD_DEPLOY_KEY
-export AP_PASSWORD
-export INITIAL_HOSTNAME
-
 export LOCALE_DEFAULT="${LOCALE_DEFAULT:-en_GB.UTF-8}"
 
 export KEYBOARD_KEYMAP="${KEYBOARD_KEYMAP:-gb}"
@@ -324,16 +320,6 @@ fi
 
 if [[ "${PUBKEY_ONLY_SSH}" = "1" && -z "${PUBKEY_SSH_FIRST_USER}" ]]; then
 	echo "Must set 'PUBKEY_SSH_FIRST_USER' to a valid SSH public key if using PUBKEY_ONLY_SSH"
-	exit 1
-fi
-
-if [[ -z "$AP_PASSWORD" ]]; then
-	echo "Must set AP_PASSWORD (password for access point mode)."
-	exit 1
-fi
-
-if [[ -z "$ALGA_FIELD_DEPLOY_KEY" ]]; then
-	echo "Must set ALGA_FIELD_DEPLOY_KEY to pull the alga-field repo."
 	exit 1
 fi
 
