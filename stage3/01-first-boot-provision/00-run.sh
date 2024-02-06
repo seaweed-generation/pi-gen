@@ -16,4 +16,4 @@ cd /etc/systemd/system/multi-user.target.wants
 ln -s /lib/systemd/system/firstboot.service .
 EOF
 
-install -m 644 files/firstboot.sh "${ROOTFS_DIR}/boot/"
+install -m 744 files/firstboot.sh "${ROOTFS_DIR}/boot/"
