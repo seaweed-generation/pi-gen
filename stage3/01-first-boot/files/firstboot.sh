@@ -13,7 +13,7 @@ hostnamectl set-hostname "${NEW_HOSTNAME}.local"
 sed -i "s/$INITIAL_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
 
 if [[ -f /etc/tailscale-auth ]]; then
-  TAILSCALE_AUTH="$(cat /etc/tailscale-auth)"
-  tailscale up --authkey "$TAILSCALE_AUTH"
+  TAILSCALE_AUTH_KEY="$(cat /etc/tailscale-auth)"
+  tailscale up --authkey "$TAILSCALE_AUTH_KEY"
   rm /etc/tailscale-auth
 fi
