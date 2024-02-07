@@ -196,7 +196,7 @@ trap term EXIT INT TERM
 
 export PI_GEN=${PI_GEN:-pi-gen}
 export PI_GEN_REPO=${PI_GEN_REPO:-https://github.com/seaweed-generation/pi-gen}
-export PI_GEN_RELEASE=${PI_GEN_RELEASE:-Seaweed Generation RPi OS}
+export PI_GEN_RELEASE=${PI_GEN_RELEASE:-SeaGen RPi OS}
 
 if [ -z "${IMG_NAME}" ]; then
 	echo "IMG_NAME not set" 1>&2
