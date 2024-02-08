@@ -6,6 +6,7 @@ else
   echo "Setting up mender config..."
 
   mender setup \
+    --data /data/mender \
     --device-type "$MENDER_DEVICE_TYPE" \
     --hosted-mender \
     --tenant-token "$MENDER_TENANT_TOKEN" \
