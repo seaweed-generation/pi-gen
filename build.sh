@@ -195,8 +195,8 @@ term() {
 trap term EXIT INT TERM
 
 export PI_GEN=${PI_GEN:-pi-gen}
-export PI_GEN_REPO=${PI_GEN_REPO:-https://github.com/RPi-Distro/pi-gen}
-export PI_GEN_RELEASE=${PI_GEN_RELEASE:-Raspberry Pi reference}
+export PI_GEN_REPO=${PI_GEN_REPO:-https://github.com/seaweed-generation/pi-gen}
+export PI_GEN_RELEASE=${PI_GEN_RELEASE:-SeaGen RPi OS}
 
 if [ -z "${IMG_NAME}" ]; then
 	echo "IMG_NAME not set" 1>&2
@@ -234,8 +234,9 @@ export WPA_COUNTRY
 export ENABLE_SSH="${ENABLE_SSH:-0}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
-export INITIAL_HOSTNAME
-export ALGAFIELD_DEB="$(realpath $ALGAFIELD_DEB)"
+export TAILSCALE_AUTH_KEY
+export MENDER_DEVICE_TYPE="${MENDER_DEVICE_TYPE:-raspberry-pi}"
+export MENDER_TENANT_TOKEN
 
 export LOCALE_DEFAULT="${LOCALE_DEFAULT:-en_GB.UTF-8}"
 
@@ -322,11 +323,6 @@ fi
 
 if [[ "${PUBKEY_ONLY_SSH}" = "1" && -z "${PUBKEY_SSH_FIRST_USER}" ]]; then
 	echo "Must set 'PUBKEY_SSH_FIRST_USER' to a valid SSH public key if using PUBKEY_ONLY_SSH"
-	exit 1
-fi
-
-if [[ -z "${ALGAFIELD_DEB}" || ! -e "${ALGAFIELD_DEB}" ]]; then
-	echo "No algafield package provided in ALGAFIELD_DEB, or it does not exist."
 	exit 1
 fi
 
