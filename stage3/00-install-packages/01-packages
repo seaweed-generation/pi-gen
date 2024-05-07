@@ -3,3 +3,8 @@ supervisor
 mender-client
 libopencv-dev
 vim
+ffmpeg
+lsof
+jq
+i2c-tools
+awscli
