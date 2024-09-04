@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "hostname=$(cat /etc/hostname)"
-echo "machine_id=$(cat /etc/machine-id)"

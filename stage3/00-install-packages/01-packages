@@ -1,6 +1,5 @@
 tailscale
 supervisor
-mender-client
 libopencv-dev
 vim
 ffmpeg
